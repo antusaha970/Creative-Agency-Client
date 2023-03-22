@@ -1,0 +1,10 @@
+.menu a {
+    text-decoration: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 9px;
+    letter-spacing: 0.396px;
+    color: #474747;
+}
