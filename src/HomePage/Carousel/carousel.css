@@ -1,0 +1,16 @@
+.croImg {
+    width: 465.49px;
+    height: 334.7px;
+    border-radius: 8.23879px;
+}
+
+.caroBox{
+    margin: 0 10px;
+}
+
+@media screen and (max-width:425px) {
+    .croImg {
+        width: 90%;
+        margin: 0 10px;
+    }
+}

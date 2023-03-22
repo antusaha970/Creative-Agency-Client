@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import React from 'react';
 import { ServiceTitle, ServiceTitle2 } from '../../Styles/StyledComponent';
 import './ServiceBox.css';
