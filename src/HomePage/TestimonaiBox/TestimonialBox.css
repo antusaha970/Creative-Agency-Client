@@ -1,0 +1,10 @@
+.client-img {
+    width: 64px;
+    height: 64px;
+}
+
+.testyBox {
+    border: 1px solid #BFBFBF;
+    border-radius: 4px;
+    padding: 15px;
+}
