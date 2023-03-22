@@ -25,3 +25,18 @@ export const ResponsiveLink = styled(MenuLink)`
     padding: 10px 10px;
     color: #000;
 `;
+
+export const Title = styled(Typography)`
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 60px;
+    letter-spacing: 0.01em;
+    color: #111430;
+    ${props => props.theme.breakpoints.down("sm")} {
+        font-size: 35px;
+        line-height: 30px;
+        margin-top: 20px;
+    }
+`;
