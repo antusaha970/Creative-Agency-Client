@@ -1,0 +1,16 @@
+.contact {
+    background: #FBD062;
+    padding: 60px 0;
+}
+
+.contact-inputs {
+    width: 90%;
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    display: block;
+    outline: none;
+    border: none;
+    margin-bottom: 20px ;
+    padding: 10px;
+}
