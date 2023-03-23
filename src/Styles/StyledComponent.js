@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 
 export const LogoImg = styled('img')`
     width: 202.81px;
@@ -62,4 +62,19 @@ text-align: center;
 letter-spacing: 0.396px;
 color: rgba(0, 0, 0, 0.7);
 margin-top: 10px;
+`;
+
+export const LoginBox = styled(Box)`
+    background: #FFFFFF;
+    border: 1px solid #ABABAB;
+    border-radius: 4px;
+    width: 570px;
+    height: 457px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    ${props => props.theme.breakpoints.down('sm')}{
+        width: 100%;
+    }
 `;

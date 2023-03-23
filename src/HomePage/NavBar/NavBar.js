@@ -37,7 +37,7 @@ const NavArea = () => {
                         <MenuLink variant="p" component="p">
                             <Link to='/'>Contact Us</Link>
                         </MenuLink>
-                        <Link to="/">
+                        <Link to="/login">
                             <Button variant="contained" color="primary">Login</Button>
                         </Link>
                     </MenuStack>
@@ -73,7 +73,7 @@ const NavArea = () => {
                         <ResponsiveLink variant="p" component="p">
                             <Link to='/'>Our Team</Link>
                         </ResponsiveLink>
-                        <Link to="/">
+                        <Link to="/login">
                             <Button variant="contained" color="primary" sx={{
                                 marginLeft: '5px'
                             }}>Login</Button>
