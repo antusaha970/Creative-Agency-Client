@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Box, Button, Container, IconButton, Menu, Stack, Tooltip } from '@mui/material';
 import { LogoImg, MenuLink, MenuStack, ResponsiveLink } from '../../Styles/StyledComponent';
 import logo from '../../images/logos/logo.png';
@@ -16,6 +16,7 @@ const NavArea = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
 
     return (
         <Container maxWidth='lg'>
