@@ -21,7 +21,7 @@ const CallToAction = () => {
                         }}>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat
                         </Typography>
-                        <Link to="/dashboard">
+                        <Link to="/dashboard/order">
                             <Button variant='contained' >Hire Us</Button>
                         </Link>
                     </Box>

@@ -3,12 +3,22 @@ import React, { useContext } from 'react';
 import './OrderServices.css';
 import { useForm } from "react-hook-form";
 import { LoggedInUserContext } from '../../Contexts/Contexts';
+import client from '../../Api/Client';
 
 const OrderServices = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [user,setUser] = useContext(LoggedInUserContext);
     const handleContactForm = (data) => {
         console.log(data);
+        client.post('/addOrder', data).then(response =>{
+            console.log(response.data);
+            if(response.data){
+                alert('Order placed successfully');
+            }
+            else{
+                alert('something went wrong please try again later');
+            }
+        })
     }
     return (
         <Grid item lg={10} md={10} sm={10} xs={12}>
