@@ -3,6 +3,7 @@ import React from 'react';
 import './CTA.css';
 import frame from '../../images/logos/Frame.png';
 import { Title } from '../../Styles/StyledComponent';
+import { Link } from 'react-router-dom';
 
 const CallToAction = () => {
     return (
@@ -20,10 +21,12 @@ const CallToAction = () => {
                         }}>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat
                         </Typography>
-                        <Button variant='contained' >Hire Us</Button>
+                        <Link to="/dashboard">
+                            <Button variant='contained' >Hire Us</Button>
+                        </Link>
                     </Box>
                     <Box flex={1.5}>
-                        <img src={frame}  alt="illustration" className='img' />
+                        <img src={frame} alt="illustration" className='img' />
                     </Box>
                 </Stack>
             </Container>

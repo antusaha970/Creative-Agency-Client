@@ -9,7 +9,7 @@ import { initializeApp } from 'firebase/app';
 import firebaseConfig from '../../Firebase/Firebase.config';
 import { GoogleAuthProvider, signInWithRedirect, getAuth, getRedirectResult } from "firebase/auth";
 import { LoggedInUserContext } from '../../Contexts/Contexts';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const app = initializeApp(firebaseConfig);
@@ -20,6 +20,7 @@ const Login = () => {
         const provider = new GoogleAuthProvider();
         signInWithRedirect(auth, provider);
     };
+    const navigate = useNavigate();
 
     useEffect(() => {
         getRedirectResult(auth)
@@ -27,7 +28,7 @@ const Login = () => {
                 if(result){
                     const signedInUser = result.user;
                     setUser(signedInUser);
-                    alert('logged in with Google Access');
+                    navigate('/dashboard');
                 }
             }).catch((error) => {
                 const errorMessage = error.message;
