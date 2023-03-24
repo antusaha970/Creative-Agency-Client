@@ -14,7 +14,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const app = initializeApp(firebaseConfig);
 const Login = () => {
-    const [user,setUser] = useContext(LoggedInUserContext);
+    const [user, setUser] = useContext(LoggedInUserContext);
     const auth = getAuth();
     const handleLogin = () => {
         const provider = new GoogleAuthProvider();
@@ -25,10 +25,10 @@ const Login = () => {
     useEffect(() => {
         getRedirectResult(auth)
             .then((result) => {
-                if(result){
+                if (result) {
                     const signedInUser = result.user;
                     setUser(signedInUser);
-                    navigate('/dashboard');
+                    navigate('/dashboard/order');
                 }
             }).catch((error) => {
                 const errorMessage = error.message;
@@ -36,7 +36,6 @@ const Login = () => {
             });
 
     }, []);
-    console.log(user);
 
     return (
         <Container maxWidth="lg">
@@ -45,22 +44,16 @@ const Login = () => {
                     <LogoImg src={logo} alt="logo" />
                 </Box>
                 <LoginBox>
-                    {/* {loading && <img src={loadingGif} alt="loading" className='loadingGif' />} */}
-                    {/* {!loading && */}
-                    <>
-                        <Box>
-                            <Typography variant="h3" component="h5" textAlign="center" sx={{
-                                paddingBottom: '15px'
-                            }}>
-                                Login With
-                            </Typography>
-                        </Box>
-                        <Box>
-                            <Button onClick={handleLogin} variant="outlined" startIcon={<Google />} fullWidth>Continue with Google</Button>
-                            {/* <button onClick={() => signOut(auth)}>Sign out</button> */}
-                        </Box>
-                    </>
-                    {/* } */}
+                    <Box>
+                        <Typography variant="h3" component="h5" textAlign="center" sx={{
+                            paddingBottom: '15px'
+                        }}>
+                            Login With
+                        </Typography>
+                    </Box>
+                    <Box>
+                        <Button onClick={handleLogin} variant="outlined" startIcon={<Google />} fullWidth>Continue with Google</Button>
+                    </Box>
                 </LoginBox>
             </Stack>
         </Container>
