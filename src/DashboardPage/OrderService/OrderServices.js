@@ -9,9 +9,8 @@ const OrderServices = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [user,setUser] = useContext(LoggedInUserContext);
     const handleContactForm = (data) => {
-        console.log(data);
+        data.status = 'pending';
         client.post('/addOrder', data).then(response =>{
-            console.log(response.data);
             if(response.data){
                 alert('Order placed successfully');
             }
