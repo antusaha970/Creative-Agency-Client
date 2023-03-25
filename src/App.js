@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { LoggedInUserContext } from "./Contexts/Contexts";
+import CustomerReview from "./DashboardPage/CustomerReview/CustomerReview";
 import DashboardOrder from "./DashboardPage/DashboardOrder/DashboardOrder";
 import ServiceList from "./DashboardPage/ServiceList/ServiceList";
 import Home from "./HomePage/Home/Home";
@@ -31,6 +32,13 @@ function App() {
         <Route path="/dashboard/serviceList" element={
           <PrivateRoute isSignedIn={user}>
             <ServiceList />
+          </PrivateRoute>
+        }
+        />
+        
+        <Route path="/dashboard/review" element={
+          <PrivateRoute isSignedIn={user}>
+            <CustomerReview />
           </PrivateRoute>
         }
         />
