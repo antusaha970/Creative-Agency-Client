@@ -7,20 +7,20 @@ import { LoggedInUserContext } from '../../Contexts/Contexts';
 const ReviewForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [user, setUser] = useContext(LoggedInUserContext);
-    const [photo,setPhoto] = useState(null);
+    const [photo, setPhoto] = useState(null);
     const handleReview = data => {
-        data.photo = photo;
-        client.post('/postReview',data).then(response =>{
-            if(response.data){
+        client.post('/postReview', data)
+        .then(response => {
+            if (response.data) {
                 alert('Review Posted Successfully');
             }
-            else{
+            else {
                 alert('Failed to Post Review');
             }
         })
     };
 
-    const handleFileChange = (e) =>{
+    const handleFileChange = (e) => {
         setPhoto(e.target.files[0]);
     }
 
@@ -38,9 +38,8 @@ const ReviewForm = () => {
                         {errors.description && <span>This field is required</span>}
                         <textarea type="text" placeholder='description' name="details"  {...register("description", { required: true })} className="contact-inputs" />
                         <label htmlFor="photo">Your photo</label>
-                        <input placeholder='Company name' id='photo' onChange={handleFileChange} type="file" name="name"  className="contact-inputs" required/>
-
-                        <Button variant="contained" type='submit' >Send</Button>
+                        <input placeholder='Company name' id='photo' onChange={handleFileChange} type="file" name="name" className="contact-inputs"  />
+                        <Button variant="contained" type='submit'>Send</Button>
                     </form>
                 </Box>
             </div>
