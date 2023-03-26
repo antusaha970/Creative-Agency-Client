@@ -1,10 +1,11 @@
 import { Container, Grid, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Testimonial.css';
 import customer1 from '../../images/customer-1.png';
 import customer2 from '../../images/customer-2.png';
 import customer3 from '../../images/customer-3.png';
 import TestimonialBox from '../TestimonaiBox/TestimonialBox';
+import client from '../../Api/Client';
 
 const testiMonialdata = [
     {
@@ -28,6 +29,14 @@ const testiMonialdata = [
 ];
 
 const Testimonial = () => {
+    const [customerReviews,setCustomerReviews] = useState([]);
+
+    useEffect(()=>{
+        client.get('/allCustomerReview').then(response => {
+            setCustomerReviews(response.data);
+        })
+    },[])
+
     return (
         <section className='testimonial'>
             <Container maxWidth="lg">
@@ -45,7 +54,7 @@ const Testimonial = () => {
 
                 <Grid container spacing={2}>
                     {
-                        testiMonialdata.map(testimonial => <TestimonialBox testimonial={testimonial} key={testimonial.name}></TestimonialBox>)
+                        customerReviews?.map(testimonial => <TestimonialBox testimonial={testimonial} key={testimonial.name}></TestimonialBox>)
                     }
                 </Grid>
 
