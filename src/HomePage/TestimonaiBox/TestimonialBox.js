@@ -1,7 +1,6 @@
 import { Avatar, Box, Grid, Stack, Typography } from '@mui/material';
 import React from 'react';
 import './TestimonialBox.css';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 const TestimonialBox = ({ testimonial }) => {
     return (

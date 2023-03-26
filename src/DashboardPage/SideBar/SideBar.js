@@ -4,6 +4,7 @@ import React from 'react';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import RateReviewOutlinedIcon from '@mui/icons-material/RateReviewOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import PersonAddOutlinedIcon from '@mui/icons-material/PersonAddOutlined';
 import { Link } from 'react-router-dom';
 import './SideBar.css';
 const SideBar = () => {
@@ -34,6 +35,15 @@ const SideBar = () => {
                             <RateReviewOutlinedIcon fontSize="small" />
                         </ListItemIcon>
                         <ListItemText>Review</ListItemText>
+                    </MenuItem>
+                </Link>
+
+                <Link to='/dashboard/makeAdmin'>
+                    <MenuItem>
+                        <ListItemIcon>
+                            <PersonAddOutlinedIcon fontSize="small" />
+                        </ListItemIcon>
+                        <ListItemText>Make Admin</ListItemText>
                     </MenuItem>
                 </Link>
 

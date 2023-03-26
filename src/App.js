@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { LoggedInUserContext } from "./Contexts/Contexts";
 import CustomerReview from "./DashboardPage/CustomerReview/CustomerReview";
 import DashboardOrder from "./DashboardPage/DashboardOrder/DashboardOrder";
+import MakeAdmin from "./DashboardPage/MakeAdmin/MakeAdmin";
 import ServiceList from "./DashboardPage/ServiceList/ServiceList";
 import Home from "./HomePage/Home/Home";
 import Login from "./LoginPage/Login/Login";
@@ -39,6 +40,13 @@ function App() {
         <Route path="/dashboard/review" element={
           <PrivateRoute isSignedIn={user}>
             <CustomerReview />
+          </PrivateRoute>
+        }
+        />
+        
+        <Route path="/dashboard/makeAdmin" element={
+          <PrivateRoute isSignedIn={user}>
+            <MakeAdmin />
           </PrivateRoute>
         }
         />
