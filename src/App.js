@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { LoggedInUserContext } from "./Contexts/Contexts";
+import { AdminContext, LoggedInUserContext } from "./Contexts/Contexts";
 import CustomerReview from "./DashboardPage/CustomerReview/CustomerReview";
 import DashboardOrder from "./DashboardPage/DashboardOrder/DashboardOrder";
 import MakeAdmin from "./DashboardPage/MakeAdmin/MakeAdmin";
@@ -13,47 +13,50 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 function App() {
 
   const [user, setUser] = useState(null);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   return (
     <LoggedInUserContext.Provider value={[user, setUser]}>
+      <AdminContext.Provider value={[isAdmin, setIsAdmin]}>
 
-      <Routes>
+        <Routes>
 
-        <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
 
-        <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
 
-        <Route path="/dashboard/order" element={
-          <PrivateRoute isSignedIn={user}>
-            <DashboardOrder />
-          </PrivateRoute>
-        }
-        />
-        
-        <Route path="/dashboard/serviceList" element={
-          <PrivateRoute isSignedIn={user}>
-            <ServiceList />
-          </PrivateRoute>
-        }
-        />
-        
-        <Route path="/dashboard/review" element={
-          <PrivateRoute isSignedIn={user}>
-            <CustomerReview />
-          </PrivateRoute>
-        }
-        />
-        
-        <Route path="/dashboard/makeAdmin" element={
-          <PrivateRoute isSignedIn={user}>
-            <MakeAdmin />
-          </PrivateRoute>
-        }
-        />
-        
+          <Route path="/dashboard/order" element={
+            <PrivateRoute isSignedIn={user}>
+              <DashboardOrder />
+            </PrivateRoute>
+          }
+          />
 
-      </Routes>
+          <Route path="/dashboard/serviceList" element={
+            <PrivateRoute isSignedIn={user}>
+              <ServiceList />
+            </PrivateRoute>
+          }
+          />
 
+          <Route path="/dashboard/review" element={
+            <PrivateRoute isSignedIn={user}>
+              <CustomerReview />
+            </PrivateRoute>
+          }
+          />
+
+          <Route path="/dashboard/makeAdmin" element={
+            <PrivateRoute isSignedIn={user}>
+              <MakeAdmin />
+            </PrivateRoute>
+          }
+          />
+
+
+        </Routes>
+
+      </AdminContext.Provider>
     </LoggedInUserContext.Provider>
   );
 }
