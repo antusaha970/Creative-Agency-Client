@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, TableCell, Typography } from "@mui/material";
 
 export const LogoImg = styled('img')`
     width: 202.81px;
@@ -78,3 +78,7 @@ export const LoginBox = styled(Box)`
         width: 100%;
     }
 `;
+
+export const CustomTableCell = styled(TableCell)`
+    color: #000;
+`
