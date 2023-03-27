@@ -1,5 +1,5 @@
 import { Container, Grid, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Service.css';
 import webImg from '../../images/icons/service1.png'
 import graphicImg from '../../images/icons/service2.png'
@@ -25,6 +25,10 @@ const servicesData = [
 ];
 
 const Services = () => {
+    const [services,setServices] = useState([]);
+    useEffect(()=>{
+        
+    },[])
     return (
         <section className='service-section'>
             <Container maxWidth='lg'>

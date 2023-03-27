@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { AdminContext, LoggedInUserContext } from "./Contexts/Contexts";
+import AddService from "./DashboardPage/AddService/AddService";
 import CustomerReview from "./DashboardPage/CustomerReview/CustomerReview";
 import DashboardOrder from "./DashboardPage/DashboardOrder/DashboardOrder";
 import MakeAdmin from "./DashboardPage/MakeAdmin/MakeAdmin";
@@ -57,6 +58,13 @@ function App() {
           <Route path="/dashboard/allOrders" element={
             <PrivateRoute isSignedIn={user}>
               <ShowAllOrders />
+            </PrivateRoute>
+          }
+          />
+
+          <Route path="/dashboard/addService" element={
+            <PrivateRoute isSignedIn={user}>
+              <AddService />
             </PrivateRoute>
           }
           />
