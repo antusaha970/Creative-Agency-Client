@@ -9,8 +9,7 @@ import NextWeekIcon from '@mui/icons-material/NextWeek';
 import AddIcon from '@mui/icons-material/Add';
 import { Link } from 'react-router-dom';
 import './SideBar.css';
-import client from '../../Api/Client';
-import { AdminContext, LoggedInUserContext } from '../../Contexts/Contexts';
+import { AdminContext } from '../../Contexts/Contexts';
 const SideBar = () => {
 
     const [isAdmin,setIsAdmin] = useContext(AdminContext);
