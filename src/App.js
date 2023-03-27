@@ -5,6 +5,7 @@ import CustomerReview from "./DashboardPage/CustomerReview/CustomerReview";
 import DashboardOrder from "./DashboardPage/DashboardOrder/DashboardOrder";
 import MakeAdmin from "./DashboardPage/MakeAdmin/MakeAdmin";
 import ServiceList from "./DashboardPage/ServiceList/ServiceList";
+import ShowAllOrders from "./DashboardPage/ShowAllOrders/ShowAllOrders";
 import Home from "./HomePage/Home/Home";
 import Login from "./LoginPage/Login/Login";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
@@ -49,6 +50,13 @@ function App() {
           <Route path="/dashboard/makeAdmin" element={
             <PrivateRoute isSignedIn={user}>
               <MakeAdmin />
+            </PrivateRoute>
+          }
+          />
+
+          <Route path="/dashboard/allOrders" element={
+            <PrivateRoute isSignedIn={user}>
+              <ShowAllOrders />
             </PrivateRoute>
           }
           />
