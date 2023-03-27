@@ -8,10 +8,16 @@ const ShowAllOrdersTable = () => {
     const [allOrdersData, setAllOrdersData] = useState([]);
     useEffect(() => {
         client.get('/showAllOrders').then(response => {
-            console.log(response.data);
             setAllOrdersData(response.data);
         })
     }, []);
+
+    const handleStatusChange = (id) =>{
+        console.log(id);
+        client.patch('/updateStatus',{id}).then(response => {
+            console.log(response.data);
+        })
+    }
 
     return (
         <Grid item lg={10} md={10} sm={10} xs={12}>
@@ -43,7 +49,12 @@ const ShowAllOrdersTable = () => {
                                         <CustomTableCell align="right">{row.email}</CustomTableCell>
                                         <CustomTableCell align="right">{row.service}</CustomTableCell>
                                         <CustomTableCell align="right">{row.projectDetails}</CustomTableCell>
-                                        <CustomTableCell align="right">{row.status}</CustomTableCell>
+                                        <CustomTableCell align="right">
+                                            <select name="status" onChange={()=>handleStatusChange(row._id)}>
+                                                <option value={row.status}>{row.status}</option>
+                                                <option value="done">Done</option>
+                                            </select>
+                                        </CustomTableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>
