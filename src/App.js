@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import Loader from "./Components/Loader/Loader";
 import { AdminContext, LoggedInUserContext } from "./Contexts/Contexts";
-import AddService from "./DashboardPage/AddService/AddService";
-import CustomerReview from "./DashboardPage/CustomerReview/CustomerReview";
-import DashboardOrder from "./DashboardPage/DashboardOrder/DashboardOrder";
-import MakeAdmin from "./DashboardPage/MakeAdmin/MakeAdmin";
-import ServiceList from "./DashboardPage/ServiceList/ServiceList";
-import ShowAllOrders from "./DashboardPage/ShowAllOrders/ShowAllOrders";
 import Home from "./HomePage/Home/Home";
 import Login from "./LoginPage/Login/Login";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+
+const MakeAdmin = lazy(() => import("./DashboardPage/MakeAdmin/MakeAdmin"));
+const ShowAllOrders = lazy(() => import("./DashboardPage/ShowAllOrders/ShowAllOrders"));
+const ServiceList = lazy(() => import("./DashboardPage/ServiceList/ServiceList"));
+const AddService = lazy(() => import("./DashboardPage/AddService/AddService"));
+const CustomerReview = lazy(() => import("./DashboardPage/CustomerReview/CustomerReview"));
+const DashboardOrder = lazy(() => import("./DashboardPage/DashboardOrder/DashboardOrder"));
 
 
 function App() {
@@ -29,42 +31,54 @@ function App() {
 
           <Route path="/dashboard/order" element={
             <PrivateRoute isSignedIn={user}>
-              <DashboardOrder />
+              <Suspense fallback={<Loader />}>
+                <DashboardOrder />
+              </Suspense>
             </PrivateRoute>
           }
           />
 
           <Route path="/dashboard/serviceList" element={
             <PrivateRoute isSignedIn={user}>
-              <ServiceList />
+              <Suspense fallback={<Loader />}>
+                <ServiceList />
+              </Suspense>
             </PrivateRoute>
           }
           />
 
           <Route path="/dashboard/review" element={
             <PrivateRoute isSignedIn={user}>
-              <CustomerReview />
+              <Suspense fallback={<Loader />}>
+                <CustomerReview />
+              </Suspense>
             </PrivateRoute>
           }
           />
 
           <Route path="/dashboard/makeAdmin" element={
             <PrivateRoute isSignedIn={user}>
-              <MakeAdmin />
+              <Suspense fallback={<Loader />}>
+                <MakeAdmin />
+              </Suspense>
             </PrivateRoute>
           }
           />
 
           <Route path="/dashboard/allOrders" element={
             <PrivateRoute isSignedIn={user}>
-              <ShowAllOrders />
+              <Suspense fallback={<Loader />}>
+                <ShowAllOrders />
+              </Suspense>
             </PrivateRoute>
           }
           />
 
           <Route path="/dashboard/addService" element={
             <PrivateRoute isSignedIn={user}>
-              <AddService />
+              <Suspense fallback={<Loader />}>
+                <AddService />
+              </Suspense>
             </PrivateRoute>
           }
           />
