@@ -1,13 +1,21 @@
 import { Box, Button, Container, Stack, Typography } from '@mui/material';
 import React from 'react';
 import { useForm } from "react-hook-form";
+import client from '../../Api/Client';
 import './Contact.css';
 
 const Contact = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const handleContactForm = (data) => {
-        console.log(data);
+        client.post('/contactMail',data).then((response) => {
+            if(response.data){
+                alert('Thank you for sending mail \nWe will get back to you as soon as possible.');
+            }
+            else{
+                alert('Failed to send mail please try again later');
+            }
+        })
     }
 
     return (

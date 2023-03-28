@@ -32,7 +32,6 @@ const Services = () => {
             setServices(response.data);
         });
     },[])
-    console.log(services);
     return (
         <section className='service-section'>
             <Container maxWidth='lg'>
@@ -51,7 +50,7 @@ const Services = () => {
                 <Grid container spacing={2}>
                     
                     {
-                        servicesData.map(service => <ServiceBox service={service} key={service.name}></ServiceBox>)
+                        servicesData.map(service => <ServiceBox service={service} key={service.title}></ServiceBox>)
                     }
                     {
                         services?.map(service => <ServiceBox service={service} key={service._id} />)
