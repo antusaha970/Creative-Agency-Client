@@ -4,17 +4,17 @@ import OrderBox from '../OrderBox/OrderBox';
 
 const ShowOrderContainer = ({ allOrders }) => {
     return (
-        <div className='bgDashboard'>
-            <Grid item lg={10} md={10} sm={10} xs={12} sx={{
-                padding: '30px'
-            }}>
-                <Stack>
+        <Grid item lg={10} md={10} sm={10} xs={12}>
+            <div className="bgDashboard">
+                <Stack sx={{
+                    padding: '30px'
+                }}>
                     {
                         allOrders?.map(order => <OrderBox order={order} key={order._id} />)
                     }
                 </Stack>
-            </Grid>
-        </div>
+            </div>
+        </Grid>
     );
 };
 

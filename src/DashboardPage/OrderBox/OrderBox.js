@@ -4,6 +4,10 @@ import './OrderBox.css';
 import icon from '../../images/icons/service1.png';
 
 const OrderBox = ({ order }) => {
+    let color = 'green';
+    if(order.status === "pending"){
+        color = 'red'
+    }
     return (
         <div className='orderBox'>
             <Box>
@@ -15,7 +19,9 @@ const OrderBox = ({ order }) => {
                                 src={icon}
                             />
                         </ListItemAvatar>
-                        <ListItemText primary={order.status} />
+                        <ListItemText primary={order.status} sx={{
+                            color: color
+                        }} />
                     </ListItemButton>
                 </ListItem>
                 <Box sx={{
